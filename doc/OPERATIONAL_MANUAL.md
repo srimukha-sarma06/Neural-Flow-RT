@@ -37,7 +37,6 @@ To compile, flash, and evaluate the **NeuralFlow-RT** real-time fluid digital tw
 ├── assets/
 │   ├── flow_perturbation.png   # Output heatmap for flow (q) and head (h) perturbations
 │   ├── reconstructed_pressure.png # Output heatmap for physical pressure field [bar]
-│   └── benchmark.png          # Execution metrics (Inference time vs GPU/Display rendering)
 └── LICENSE                     # MIT Open Source License
 ```
 
@@ -83,9 +82,9 @@ Click **Resume (F8)** in e² studio to start execution under μT-Kernel 3.0.
   3. **PHYSICAL HEAD $H(\xi, \tau)$ [m]:** Reconstructed physical head along pipe normalized space $\xi$ and window time $\tau$.
   4. **RECONSTRUCTED PRESSURE [bar]:** Complete 2D pressure field map.
 
-![Flow Perturbation Heatmap Output](assets/flow_perturbation.png)
+![Flow Perturbation Heatmap Output](images/runs2.jpeg)
 
-![Reconstructed Pressure Map Output](assets/reconstructed_pressure.png)
+![Reconstructed Pressure Map Output](images/runs.jpeg)
 
 - **Anomaly Detection Verification:**
   - **Healthy Pipeline State:** The header displays `"SYSTEM HEALTHY: NO LEAK DETECTED"` in green text.
@@ -95,7 +94,6 @@ Click **Resume (F8)** in e² studio to start execution under μT-Kernel 3.0.
   - `INF:<ms>` displays total two-stage PINN execution latency accelerated by Cortex-M85 Helium SIMD instructions.
   - `GPU:<ms>` displays hardware frame rendering time using D2D bit-blit and texture mapping.
 
-![Performance Benchmark Output](assets/benchmark.png)
 
 ---
 
