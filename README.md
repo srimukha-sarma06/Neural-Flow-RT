@@ -158,6 +158,9 @@ Leak vs. constriction are almost never confused with each other (3 and 2 cases) 
 
 Latency, peak tensor-arena usage, and achieved frame/update rate should be reported separately once exact on-board measurements are logged.
 
+![Hardware validation run 1](images/runs.jpeg)
+![Hardware validation run 2](images/runs2.jpeg)
+
 ---
 
 ## 4. Third-Party Software Disclosures (Section 2.3 Compliance)
