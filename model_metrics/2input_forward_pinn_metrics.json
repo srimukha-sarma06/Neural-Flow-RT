@@ -1,0 +1,41 @@
+{
+  "model": "2-input single-pipe forward PINN",
+  "input": {
+    "shape": "[N, 2]",
+    "features": [
+      "xi = x/L",
+      "tau = a_nom*t/L"
+    ]
+  },
+  "output": {
+    "shape": "[N, 2]",
+    "features": [
+      "h",
+      "q"
+    ]
+  },
+  "architecture": "Plain Tanh MLP",
+  "hidden_width": 32,
+  "hidden_depth": 3,
+  "parameters": 2274,
+  "evaluation": {
+    "reference": "MOC ground truth",
+    "leak_location_m": 37.3,
+    "leak_CdA_m2": 3.6e-06,
+    "seed": 0
+  },
+  "accuracy_metrics": {
+    "H_field_NRMSE": 0.0058615709666646155,
+    "H_field_NRMSE_percent": 0.5861570966664615,
+    "Q_field_NRMSE": 0.022689163644497103,
+    "Q_field_NRMSE_percent": 2.2689163644497103,
+    "Q_RMSE_L_per_s": 0.00860780280478565,
+    "Q_relative_error_percent": 0.42282081509216807,
+    "Q_mid_peak_error_L_per_s": 0.00044828711375215907,
+    "H_sensor_RMSE_m": 0.04238461492447715
+  },
+  "export_fidelity": {
+    "max_float64_PyTorch_vs_float32_ONNX_absolute_difference": 3.572298825083031e-06,
+    "ONNX_file_size_bytes": 12938
+  }
+}
