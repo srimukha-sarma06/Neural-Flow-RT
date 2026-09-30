@@ -82,9 +82,9 @@ Click **Resume (F8)** in e² studio to start execution under μT-Kernel 3.0.
   3. **PHYSICAL HEAD $H(\xi, \tau)$ [m]:** Reconstructed physical head along pipe normalized space $\xi$ and window time $\tau$.
   4. **RECONSTRUCTED PRESSURE [bar]:** Complete 2D pressure field map.
 
-![Flow Perturbation Heatmap Output](images/flow.jpeg)
+![Flow Perturbation Heatmap Output](../images/flow.jpeg)
 
-![Reconstructed Pressure Map Output](images/pressure.jpeg)
+![Reconstructed Pressure Map Output](../images/pressure.jpeg)
 
 - **Anomaly Detection Verification:**
   - **Healthy Pipeline State:** The header displays `"SYSTEM HEALTHY: NO LEAK DETECTED"` in green text.
