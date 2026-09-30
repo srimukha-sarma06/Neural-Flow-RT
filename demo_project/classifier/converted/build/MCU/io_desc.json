@@ -1,0 +1,22 @@
+{
+  "inputs": [
+    [
+      "sensor_features",
+      [
+        "1",
+        "206"
+      ],
+      "Float32"
+    ]
+  ],
+  "outputs": [
+    [
+      "cls_xi_kappa_70032",
+      [
+        "1",
+        "6"
+      ],
+      "Float32"
+    ]
+  ]
+}

@@ -1,0 +1,864 @@
+{
+  "subgraphs": [
+    {
+      "nodes": [
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "C",
+            "name": "FloatVecConstant_70000",
+            "shape": [
+              206
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "C",
+            "name": "FloatVecConstant_70001",
+            "shape": [
+              1
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "C",
+            "name": "FloatVecConstant_70002",
+            "shape": [
+              1
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "C",
+            "name": "FloatVecConstant_70003",
+            "shape": [
+              206
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "FloatVecConstant_70004",
+            "shape": [
+              96,
+              206
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "C",
+            "name": "FloatVecConstant_70005",
+            "shape": [
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "FloatVecConstant_70006",
+            "shape": [
+              96,
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "C",
+            "name": "FloatVecConstant_70007",
+            "shape": [
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "FloatVecConstant_70008",
+            "shape": [
+              96,
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "C",
+            "name": "FloatVecConstant_70009",
+            "shape": [
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "FloatVecConstant_70010",
+            "shape": [
+              3,
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "C",
+            "name": "FloatVecConstant_70011",
+            "shape": [
+              3
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "FloatVecConstant_70012",
+            "shape": [
+              1,
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "C",
+            "name": "FloatVecConstant_70013",
+            "shape": [
+              1
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "FloatVecConstant_70014",
+            "shape": [
+              2,
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "FloatVecConstant",
+          "output": {
+            "dt": "Float32",
+            "layout": "C",
+            "name": "FloatVecConstant_70015",
+            "shape": [
+              2
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {
+            "in_0": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "cls_xi_kappa_70032",
+              "shape": [
+                1,
+                6
+              ]
+            }
+          },
+          "op_name": "OutputNode",
+          "output": {
+            "dt": "UInt8",
+            "layout": "x",
+            "name": "GraphOutputs",
+            "shape": [
+              1
+            ]
+          }
+        },
+        {
+          "attributes": {
+            "axis": "1",
+            "fused_activation": "NONE"
+          },
+          "input_names": {
+            "in_0": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_Softmax_output_0_70027",
+              "shape": [
+                1,
+                3
+              ]
+            },
+            "in_1": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_Add_output_0_70031",
+              "shape": [
+                1,
+                1
+              ]
+            },
+            "in_2": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_Exp_output_0_70029",
+              "shape": [
+                1,
+                2
+              ]
+            }
+          },
+          "op_name": "TFLiteConcatenate",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "cls_xi_kappa_70032",
+            "shape": [
+              1,
+              6
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {},
+          "op_name": "Var",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "sensor_features",
+            "shape": [
+              1,
+              206
+            ]
+          }
+        },
+        {
+          "attributes": {
+            "fused_activation": "NONE"
+          },
+          "input_names": {
+            "input_lhs": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_Sub_output_0_70016",
+              "shape": [
+                1,
+                206
+              ]
+            },
+            "input_rhs": {
+              "dt": "Float32",
+              "layout": "C",
+              "name": "FloatVecConstant_70003",
+              "shape": [
+                206
+              ]
+            }
+          },
+          "op_name": "TFLiteMul",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_Div_output_0_70017",
+            "shape": [
+              1,
+              206
+            ]
+          }
+        },
+        {
+          "attributes": {
+            "fused_activation": "NONE"
+          },
+          "input_names": {
+            "input_lhs": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "sensor_features",
+              "shape": [
+                1,
+                206
+              ]
+            },
+            "input_rhs": {
+              "dt": "Float32",
+              "layout": "C",
+              "name": "FloatVecConstant_70000",
+              "shape": [
+                206
+              ]
+            }
+          },
+          "op_name": "TFLiteSub",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_Sub_output_0_70016",
+            "shape": [
+              1,
+              206
+            ]
+          }
+        },
+        {
+          "attributes": {
+            "fused_activation": "NONE"
+          },
+          "input_names": {
+            "input_lhs": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_Mul_output_0_70030",
+              "shape": [
+                1,
+                1
+              ]
+            },
+            "input_rhs": {
+              "dt": "Float32",
+              "layout": "C",
+              "name": "FloatVecConstant_70002",
+              "shape": [
+                1
+              ]
+            }
+          },
+          "op_name": "TFLiteQAdd",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_Add_output_0_70031",
+            "shape": [
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {
+            "input": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_sev_out_Gemm_output_0_70026",
+              "shape": [
+                1,
+                2
+              ]
+            }
+          },
+          "op_name": "TFLiteExp",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_Exp_output_0_70029",
+            "shape": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "attributes": {
+            "fused_activation": "NONE"
+          },
+          "input_names": {
+            "input_lhs": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_Sigmoid_output_0_70028",
+              "shape": [
+                1,
+                1
+              ]
+            },
+            "input_rhs": {
+              "dt": "Float32",
+              "layout": "C",
+              "name": "FloatVecConstant_70001",
+              "shape": [
+                1
+              ]
+            }
+          },
+          "op_name": "TFLiteMul",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_Mul_output_0_70030",
+            "shape": [
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {
+            "input": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_xi_out_Gemm_output_0_70025",
+              "shape": [
+                1,
+                1
+              ]
+            }
+          },
+          "op_name": "TFLiteSigmoid",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_Sigmoid_output_0_70028",
+            "shape": [
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "attributes": {
+            "beta": "1"
+          },
+          "input_names": {
+            "input": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_cls_out_Gemm_output_0_70024",
+              "shape": [
+                1,
+                3
+              ]
+            }
+          },
+          "op_name": "TFLiteSoftmax",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_Softmax_output_0_70027",
+            "shape": [
+              1,
+              3
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {
+            "input": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_hidden_1_Gemm_output_0_70020",
+              "shape": [
+                1,
+                96
+              ]
+            }
+          },
+          "op_name": "TFLiteTanh",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_Tanh_1_output_0_70021",
+            "shape": [
+              1,
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {
+            "input": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_hidden_2_Gemm_output_0_70022",
+              "shape": [
+                1,
+                96
+              ]
+            }
+          },
+          "op_name": "TFLiteTanh",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_Tanh_2_output_0_70023",
+            "shape": [
+              1,
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {},
+          "input_names": {
+            "input": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_hidden_0_Gemm_output_0_70018",
+              "shape": [
+                1,
+                96
+              ]
+            }
+          },
+          "op_name": "TFLiteTanh",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_Tanh_output_0_70019",
+            "shape": [
+              1,
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {
+            "asymmetric_quantize_inputs": "0",
+            "fused_activation": "NONE",
+            "keep_num_dims": "0",
+            "quantized_bias_type": "dtype(Float32)"
+          },
+          "input_names": {
+            "bias": {
+              "dt": "Float32",
+              "layout": "C",
+              "name": "FloatVecConstant_70011",
+              "shape": [
+                3
+              ]
+            },
+            "input": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_Tanh_2_output_0_70023",
+              "shape": [
+                1,
+                96
+              ]
+            },
+            "kernel": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "FloatVecConstant_70010",
+              "shape": [
+                3,
+                96
+              ]
+            }
+          },
+          "op_name": "TFLiteFullyConnectedBias",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_cls_out_Gemm_output_0_70024",
+            "shape": [
+              1,
+              3
+            ]
+          }
+        },
+        {
+          "attributes": {
+            "asymmetric_quantize_inputs": "0",
+            "fused_activation": "NONE",
+            "keep_num_dims": "0",
+            "quantized_bias_type": "dtype(Float32)"
+          },
+          "input_names": {
+            "bias": {
+              "dt": "Float32",
+              "layout": "C",
+              "name": "FloatVecConstant_70005",
+              "shape": [
+                96
+              ]
+            },
+            "input": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_Div_output_0_70017",
+              "shape": [
+                1,
+                206
+              ]
+            },
+            "kernel": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "FloatVecConstant_70004",
+              "shape": [
+                96,
+                206
+              ]
+            }
+          },
+          "op_name": "TFLiteFullyConnectedBias",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_hidden_0_Gemm_output_0_70018",
+            "shape": [
+              1,
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {
+            "asymmetric_quantize_inputs": "0",
+            "fused_activation": "NONE",
+            "keep_num_dims": "0",
+            "quantized_bias_type": "dtype(Float32)"
+          },
+          "input_names": {
+            "bias": {
+              "dt": "Float32",
+              "layout": "C",
+              "name": "FloatVecConstant_70007",
+              "shape": [
+                96
+              ]
+            },
+            "input": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_Tanh_output_0_70019",
+              "shape": [
+                1,
+                96
+              ]
+            },
+            "kernel": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "FloatVecConstant_70006",
+              "shape": [
+                96,
+                96
+              ]
+            }
+          },
+          "op_name": "TFLiteFullyConnectedBias",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_hidden_1_Gemm_output_0_70020",
+            "shape": [
+              1,
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {
+            "asymmetric_quantize_inputs": "0",
+            "fused_activation": "NONE",
+            "keep_num_dims": "0",
+            "quantized_bias_type": "dtype(Float32)"
+          },
+          "input_names": {
+            "bias": {
+              "dt": "Float32",
+              "layout": "C",
+              "name": "FloatVecConstant_70009",
+              "shape": [
+                96
+              ]
+            },
+            "input": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_Tanh_1_output_0_70021",
+              "shape": [
+                1,
+                96
+              ]
+            },
+            "kernel": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "FloatVecConstant_70008",
+              "shape": [
+                96,
+                96
+              ]
+            }
+          },
+          "op_name": "TFLiteFullyConnectedBias",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_hidden_2_Gemm_output_0_70022",
+            "shape": [
+              1,
+              96
+            ]
+          }
+        },
+        {
+          "attributes": {
+            "asymmetric_quantize_inputs": "0",
+            "fused_activation": "NONE",
+            "keep_num_dims": "0",
+            "quantized_bias_type": "dtype(Float32)"
+          },
+          "input_names": {
+            "bias": {
+              "dt": "Float32",
+              "layout": "C",
+              "name": "FloatVecConstant_70015",
+              "shape": [
+                2
+              ]
+            },
+            "input": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_Tanh_2_output_0_70023",
+              "shape": [
+                1,
+                96
+              ]
+            },
+            "kernel": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "FloatVecConstant_70014",
+              "shape": [
+                2,
+                96
+              ]
+            }
+          },
+          "op_name": "TFLiteFullyConnectedBias",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_sev_out_Gemm_output_0_70026",
+            "shape": [
+              1,
+              2
+            ]
+          }
+        },
+        {
+          "attributes": {
+            "asymmetric_quantize_inputs": "0",
+            "fused_activation": "NONE",
+            "keep_num_dims": "0",
+            "quantized_bias_type": "dtype(Float32)"
+          },
+          "input_names": {
+            "bias": {
+              "dt": "Float32",
+              "layout": "C",
+              "name": "FloatVecConstant_70013",
+              "shape": [
+                1
+              ]
+            },
+            "input": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "wa_net_Tanh_2_output_0_70023",
+              "shape": [
+                1,
+                96
+              ]
+            },
+            "kernel": {
+              "dt": "Float32",
+              "layout": "HW",
+              "name": "FloatVecConstant_70012",
+              "shape": [
+                1,
+                96
+              ]
+            }
+          },
+          "op_name": "TFLiteFullyConnectedBias",
+          "output": {
+            "dt": "Float32",
+            "layout": "HW",
+            "name": "wa_net_xi_out_Gemm_output_0_70025",
+            "shape": [
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "subgraph_name": "sub_0",
+      "target_name": "UNDEFINED"
+    }
+  ]
+}

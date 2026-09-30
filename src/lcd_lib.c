@@ -1,0 +1,359 @@
+/*
+ * lcd_lib.c
+ */
+
+#include "lcd_lib.h"
+
+static uint32_t *g_p_single_buffer, *g_p_double_buffer, *p_framebuffer;
+volatile uint8_t g_vsync_flag = 0;
+d2_device *gp_davey = NULL;
+static uint32_t texture_buffer[TEX_DIM * TEX_DIM];
+static uint32_t colorbar_texture[TEX_DIM * TEX_DIM];
+static uint8_t font_atlas[768 * 8]; // Texture buffer for the 96 ASCII characters
+
+// Full standard 8x8 ASCII font for characters 32 (Space) to 127
+static const uint8_t font_8x8[96][8] = {
+    {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}, {0x18,0x3C,0x3C,0x18,0x18,0x00,0x18,0x00},
+    {0x66,0x66,0x66,0x00,0x00,0x00,0x00,0x00}, {0x6C,0x6C,0xFE,0x6C,0xFE,0x6C,0x6C,0x00},
+    {0x18,0x3E,0x60,0x3C,0x06,0x7C,0x18,0x00}, {0x00,0x66,0x6C,0x18,0x36,0x66,0x00,0x00},
+    {0x38,0x6C,0x6C,0x38,0x6D,0x66,0x3B,0x00}, {0x18,0x18,0x30,0x00,0x00,0x00,0x00,0x00},
+    {0x0C,0x18,0x30,0x30,0x30,0x18,0x0C,0x00}, {0x30,0x18,0x0C,0x0C,0x0C,0x18,0x30,0x00},
+    {0x00,0x66,0x3C,0xFF,0x3C,0x66,0x00,0x00}, {0x00,0x18,0x18,0x7E,0x18,0x18,0x00,0x00},
+    {0x00,0x00,0x00,0x00,0x00,0x18,0x18,0x30}, {0x00,0x00,0x00,0x7E,0x00,0x00,0x00,0x00},
+    {0x00,0x00,0x00,0x00,0x00,0x18,0x18,0x00}, {0x06,0x0C,0x18,0x30,0x60,0xC0,0x00,0x00},
+    {0x3C,0x66,0x6E,0x76,0x66,0x66,0x3C,0x00}, {0x18,0x38,0x18,0x18,0x18,0x18,0x7E,0x00},
+    {0x3C,0x66,0x06,0x0C,0x18,0x30,0x7E,0x00}, {0x3C,0x66,0x06,0x1C,0x06,0x66,0x3C,0x00},
+    {0x0C,0x1C,0x3C,0x6C,0x7E,0x0C,0x0C,0x00}, {0x7E,0x60,0x7C,0x06,0x06,0x66,0x3C,0x00},
+    {0x3C,0x60,0x7C,0x66,0x66,0x66,0x3C,0x00}, {0x7E,0x06,0x06,0x0C,0x18,0x18,0x18,0x00},
+    {0x3C,0x66,0x66,0x3C,0x66,0x66,0x3C,0x00}, {0x3C,0x66,0x66,0x3E,0x06,0x0C,0x38,0x00},
+    {0x00,0x18,0x18,0x00,0x00,0x18,0x18,0x00}, {0x00,0x18,0x18,0x00,0x00,0x18,0x18,0x30},
+    {0x0C,0x18,0x30,0x60,0x30,0x18,0x0C,0x00}, {0x00,0x00,0x7E,0x00,0x7E,0x00,0x00,0x00},
+    {0x30,0x18,0x0C,0x06,0x0C,0x18,0x30,0x00}, {0x3C,0x66,0x06,0x0C,0x18,0x00,0x18,0x00},
+    {0x3C,0x66,0x6E,0x6E,0x60,0x66,0x3C,0x00}, {0x18,0x3C,0x66,0x66,0x7E,0x66,0x66,0x00},
+    {0x7C,0x66,0x66,0x7C,0x66,0x66,0x7C,0x00}, {0x3C,0x66,0x60,0x60,0x60,0x66,0x3C,0x00},
+    {0x78,0x6C,0x66,0x66,0x66,0x6C,0x78,0x00}, {0x7E,0x60,0x60,0x78,0x60,0x60,0x7E,0x00},
+    {0x7E,0x60,0x60,0x78,0x60,0x60,0x60,0x00}, {0x3C,0x66,0x60,0x6E,0x66,0x66,0x3C,0x00},
+    {0x66,0x66,0x66,0x7E,0x66,0x66,0x66,0x00}, {0x3E,0x18,0x18,0x18,0x18,0x18,0x3E,0x00},
+    {0x06,0x06,0x06,0x06,0x06,0x66,0x3C,0x00}, {0x66,0x6C,0x78,0x70,0x78,0x6C,0x66,0x00},
+    {0x60,0x60,0x60,0x60,0x60,0x60,0x7E,0x00}, {0x63,0x77,0x7F,0x6B,0x63,0x63,0x63,0x00},
+    {0x66,0x76,0x7E,0x7E,0x6E,0x66,0x66,0x00}, {0x3C,0x66,0x66,0x66,0x66,0x66,0x3C,0x00},
+    {0x7C,0x66,0x66,0x7C,0x60,0x60,0x60,0x00}, {0x3C,0x66,0x66,0x66,0x6A,0x6C,0x36,0x00},
+    {0x7C,0x66,0x66,0x7C,0x6C,0x66,0x66,0x00}, {0x3C,0x66,0x60,0x3C,0x06,0x66,0x3C,0x00},
+    {0x7E,0x18,0x18,0x18,0x18,0x18,0x18,0x00}, {0x66,0x66,0x66,0x66,0x66,0x66,0x3C,0x00},
+    {0x66,0x66,0x66,0x66,0x66,0x3C,0x18,0x00}, {0x63,0x63,0x63,0x6B,0x7F,0x77,0x63,0x00},
+    {0x66,0x66,0x3C,0x18,0x3C,0x66,0x66,0x00}, {0x66,0x66,0x66,0x3C,0x18,0x18,0x18,0x00},
+    {0x7E,0x06,0x0C,0x18,0x30,0x60,0x7E,0x00}, {0x3C,0x30,0x30,0x30,0x30,0x30,0x3C,0x00},
+    {0x00,0x60,0x30,0x18,0x0C,0x06,0x00,0x00}, {0x3C,0x0C,0x0C,0x0C,0x0C,0x0C,0x3C,0x00},
+    {0x18,0x3C,0x66,0x00,0x00,0x00,0x00,0x00}, {0x00,0x00,0x00,0x00,0x00,0x00,0xFF,0x00},
+    {0x30,0x18,0x00,0x00,0x00,0x00,0x00,0x00}, {0x00,0x00,0x3C,0x06,0x3E,0x66,0x3E,0x00},
+    {0x60,0x60,0x7C,0x66,0x66,0x66,0x7C,0x00}, {0x00,0x00,0x3C,0x66,0x60,0x66,0x3C,0x00},
+    {0x06,0x06,0x3E,0x66,0x66,0x66,0x3E,0x00}, {0x00,0x00,0x3C,0x66,0x7E,0x60,0x3C,0x00},
+    {0x1C,0x30,0x78,0x30,0x30,0x30,0x30,0x00}, {0x00,0x00,0x3E,0x66,0x66,0x3E,0x06,0x3C},
+    {0x60,0x60,0x7C,0x66,0x66,0x66,0x66,0x00}, {0x18,0x00,0x38,0x18,0x18,0x18,0x3C,0x00},
+    {0x06,0x00,0x06,0x06,0x06,0x66,0x3C,0x00}, {0x60,0x60,0x66,0x6C,0x78,0x6C,0x66,0x00},
+    {0x38,0x18,0x18,0x18,0x18,0x18,0x3C,0x00}, {0x00,0x00,0x6E,0x7F,0x6B,0x6B,0x6B,0x00},
+    {0x00,0x00,0x7C,0x66,0x66,0x66,0x66,0x00}, {0x00,0x00,0x3C,0x66,0x66,0x66,0x3C,0x00},
+    {0x00,0x00,0x7C,0x66,0x66,0x7C,0x60,0x60}, {0x00,0x00,0x3E,0x66,0x66,0x3E,0x06,0x06},
+    {0x00,0x00,0x7C,0x66,0x60,0x60,0x60,0x00}, {0x00,0x00,0x3E,0x60,0x3C,0x06,0x7C,0x00},
+    {0x30,0x78,0x30,0x30,0x30,0x30,0x1C,0x00}, {0x00,0x00,0x66,0x66,0x66,0x66,0x3E,0x00},
+    {0x00,0x00,0x66,0x66,0x66,0x3C,0x18,0x00}, {0x00,0x00,0x63,0x6B,0x7F,0x77,0x63,0x00},
+    {0x00,0x00,0x66,0x3C,0x18,0x3C,0x66,0x00}, {0x00,0x00,0x66,0x66,0x66,0x3E,0x06,0x3C},
+    {0x00,0x00,0x7E,0x0C,0x18,0x30,0x7E,0x00}, {0x0E,0x18,0x18,0x70,0x18,0x18,0x0E,0x00},
+    {0x18,0x18,0x18,0x00,0x18,0x18,0x18,0x00}, {0x70,0x18,0x18,0x0E,0x18,0x18,0x70,0x00},
+    {0x3A,0x6E,0x00,0x00,0x00,0x00,0x00,0x00}, {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}
+};
+
+void lcd_init_font(void) {
+    for (int c = 0; c < 96; c++) {
+        for (int row = 0; row < 8; row++) {
+            uint8_t row_data = font_8x8[c][row];
+            for (int col = 0; col < 8; col++) {
+                if (row_data & (1 << (7 - col))) {
+                    font_atlas[row * 768 + (c * 8) + col] = 0xFF;
+                } else {
+                    font_atlas[row * 768 + (c * 8) + col] = 0x00;
+                }
+            }
+        }
+    }
+}
+
+static uint32_t get_jet_color(float val, float min_val, float max_val) {
+    if (max_val <= min_val) max_val = min_val + 1.0f;
+    float norm = (val - min_val) / (max_val - min_val);
+    if (norm < 0.0f) norm = 0.0f;
+    if (norm > 1.0f) norm = 1.0f;
+
+    uint8_t r = 0, g = 0, b = 0;
+    if (norm < 0.25f) {
+        r = 0; g = (uint8_t)(norm * 4.0f * 255.0f); b = 255;
+    } else if (norm < 0.5f) {
+        r = 0; g = 255; b = (uint8_t)((1.0f - (norm - 0.25f) * 4.0f) * 255.0f);
+    } else if (norm < 0.75f) {
+        r = (uint8_t)((norm - 0.5f) * 4.0f * 255.0f); g = 255; b = 0;
+    } else {
+        r = 255; g = (uint8_t)((1.0f - (norm - 0.75f) * 4.0f) * 255.0f); b = 0;
+    }
+    return ((uint32_t)r << 16) | ((uint32_t)g << 8) | (uint32_t)b;
+}
+
+void lcd_init_hw(void) {
+    g_p_single_buffer = (uint32_t*)g_display_cfg.input[0].p_base;
+    g_p_double_buffer = g_p_single_buffer + (SCREEN_WIDTH * SCREEN_HEIGHT);
+    p_framebuffer = g_p_single_buffer;
+
+    R_GLCDC_Open(&g_display_ctrl, &g_display_cfg);
+    R_GLCDC_Start(&g_display_ctrl);
+
+    while(!g_vsync_flag);
+    g_vsync_flag = 0;
+
+    gp_davey = d2_opendevice(0);
+    d2_inithw(gp_davey, 0);
+    d2_setalpha(gp_davey, 255);
+    d2_setalphamode(gp_davey, d2_am_constant);
+    d2_setblendmode(gp_davey, d2_bm_alpha, d2_bm_one_minus_alpha);
+}
+
+void lcd_start_frame(uint32_t clear_color) {
+    p_framebuffer = (p_framebuffer == g_p_single_buffer) ? g_p_double_buffer : g_p_single_buffer;
+
+    fsp_err_t err;
+    do {
+        err = R_GLCDC_BufferChange(&g_display_ctrl, (uint8_t*) p_framebuffer, DISPLAY_FRAME_LAYER_1);
+        if (err) {
+            g_vsync_flag = 0;
+            while(!g_vsync_flag);
+        }
+    } while (FSP_ERR_INVALID_UPDATE_TIMING == err);
+
+    g_vsync_flag = 0;
+    while(!g_vsync_flag);
+
+    d2_startframe(gp_davey);
+    d2_framebuffer(gp_davey, p_framebuffer, SCREEN_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, d2_mode_rgb888);
+    d2_clear(gp_davey, clear_color);
+}
+
+void lcd_draw_axes(uint32_t color, HeatmapConfig* cfg) {
+    d2_setcolor(gp_davey, 0, color);
+
+    d2_point x_start = cfg->x_offset << SHIFT_VALUE;
+    d2_point x_end   = (cfg->x_offset + cfg->plot_width) << SHIFT_VALUE;
+    d2_point y_top    = cfg->y_offset << SHIFT_VALUE;
+    d2_point y_bottom = (cfg->y_offset + cfg->plot_height) << SHIFT_VALUE;
+    d2_point thickness = 2 << SHIFT_VALUE;
+
+    // Main bounding axes
+    d2_renderline(gp_davey, x_start, y_bottom + (10 << SHIFT_VALUE), x_end, y_bottom + (10 << SHIFT_VALUE), thickness, d2_le_closed);
+    d2_renderline(gp_davey, x_start - (10 << SHIFT_VALUE), y_top, x_start - (10 << SHIFT_VALUE), y_bottom, thickness, d2_le_closed);
+    d2_renderline(gp_davey, x_end + (10 << SHIFT_VALUE), y_top, x_end + (10 << SHIFT_VALUE), y_bottom, thickness, d2_le_closed);
+
+    // Draw tick subdivisions (25%, 50%, 75%)
+    for(int i = 1; i <= 3; i++) {
+        d2_point x_tick = x_start + ((cfg->plot_width * i / 4) << SHIFT_VALUE);
+        d2_point y_tick = y_top + ((cfg->plot_height * i / 4) << SHIFT_VALUE);
+
+        // Bottom X-axis ticks
+        d2_renderline(gp_davey, x_tick, y_bottom + (5 << SHIFT_VALUE), x_tick, y_bottom + (15 << SHIFT_VALUE), thickness, d2_le_closed);
+        // Left Y-axis ticks
+        d2_renderline(gp_davey, x_start - (15 << SHIFT_VALUE), y_tick, x_start - (5 << SHIFT_VALUE), y_tick, thickness, d2_le_closed);
+    }
+}
+
+static void format_short_float(float val, char* buf) {
+    if (val == 0.0f) {
+        strcpy(buf, "0");
+        return;
+    }
+
+    int negative = 0;
+    if (val < 0.0f) {
+        negative = 1;
+        val = -val;
+    }
+
+    // Handle small numbers using manual exponent scaling
+    if (val < 0.01f) {
+        int exp_val = 0;
+        while (val < 1.0f && exp_val > -10) {
+            val *= 10.0f;
+            exp_val--;
+        }
+        int whole = (int)val;
+        int frac = (int)((val - (float)whole) * 10.0f);
+
+        if (negative) {
+            snprintf(buf, 16, "-%d.%de%d", whole, frac, exp_val);
+        } else {
+            snprintf(buf, 16, "%d.%de%d", whole, frac, exp_val);
+        }
+        return;
+    }
+
+    // For normal ranges
+    int whole = (int)val;
+    int frac = (int)((val - (float)whole) * 100.0f + 0.5f);
+    if (frac >= 100) {
+        whole += 1;
+        frac = 0;
+    }
+
+    if (frac > 0 && frac % 10 == 0) {
+        frac /= 10;
+    }
+
+    char temp[16];
+    if (frac > 0) {
+        if (whole == 0) {
+            snprintf(temp, sizeof(temp), ".%d", frac);
+        } else {
+            snprintf(temp, sizeof(temp), "%d.%d", whole, frac);
+        }
+    } else {
+        snprintf(temp, sizeof(temp), "%d", whole);
+    }
+
+    if (negative) {
+        snprintf(buf, 16, "-%s", temp);
+    } else {
+        strcpy(buf, temp);
+    }
+}
+
+void lcd_draw_axis_labels(HeatmapConfig* cfg) {
+    char buf[16];
+    float scale = 1.5f;
+
+    // Spatial X-Axis labels (Bottom)
+    lcd_draw_string("0", cfg->x_offset - 4, cfg->y_offset + cfg->plot_height + 20, 0xFFFFFF, scale);
+    lcd_draw_string(".25", cfg->x_offset + (cfg->plot_width * 1 / 4) - 14, cfg->y_offset + cfg->plot_height + 20, 0xFFFFFF, scale);
+    lcd_draw_string(".5", cfg->x_offset + (cfg->plot_width * 2 / 4) - 10, cfg->y_offset + cfg->plot_height + 20, 0xFFFFFF, scale);
+    lcd_draw_string(".75", cfg->x_offset + (cfg->plot_width * 3 / 4) - 14, cfg->y_offset + cfg->plot_height + 20, 0xFFFFFF, scale);
+    lcd_draw_string("1", cfg->x_offset + cfg->plot_width - 4, cfg->y_offset + cfg->plot_height + 20, 0xFFFFFF, scale);
+
+    // Spatial Y-Axis labels (Left)
+    lcd_draw_string("1", cfg->x_offset - 30, cfg->y_offset - 4, 0xFFFFFF, scale);
+    lcd_draw_string(".75", cfg->x_offset - 45, cfg->y_offset + (cfg->plot_height * 1 / 4) - 4, 0xFFFFFF, scale);
+    lcd_draw_string(".5", cfg->x_offset - 38, cfg->y_offset + (cfg->plot_height * 2 / 4) - 4, 0xFFFFFF, scale);
+    lcd_draw_string(".25", cfg->x_offset - 45, cfg->y_offset + (cfg->plot_height * 3 / 4) - 4, 0xFFFFFF, scale);
+    lcd_draw_string("0", cfg->x_offset - 30, cfg->y_offset + cfg->plot_height - 4, 0xFFFFFF, scale);
+
+    // Value Range labels (Colorbar)
+    uint16_t text_x = cfg->x_offset + cfg->plot_width + 50;
+
+    format_short_float(cfg->max_val, buf);
+    lcd_draw_string(buf, text_x, cfg->y_offset - 4, 0xFF5555, scale);
+
+    format_short_float(cfg->min_val + (cfg->max_val - cfg->min_val) / 2.0f, buf);
+    lcd_draw_string(buf, text_x, cfg->y_offset + (cfg->plot_height / 2) - 4, 0xFFFFFF, scale);
+
+    format_short_float(cfg->min_val, buf);
+    lcd_draw_string(buf, text_x, cfg->y_offset + cfg->plot_height - 4, 0x5555FF, scale);
+}
+
+void lcd_draw_string(const char* text, uint16_t x, uint16_t y, uint32_t color, float scale) {
+    if (scale <= 0.0f) scale = 1.0f;
+    int cursor_x = x;
+    uint16_t char_size = (uint16_t)(8.0f * scale);
+
+    uint32_t map_scale = (uint32_t)((1.0f / scale) * 65536.0f);
+
+    d2_settexture(gp_davey, font_atlas, 768, 768, 8, d2_mode_alpha8);
+    d2_settexturemode(gp_davey, 0);
+
+    // FIX: Using d2_to_one for the first parameter ensures the text takes on the requested color
+    // instead of pulling "black" from the alpha-only texture mask.
+    d2_settextureoperation(gp_davey, d2_to_one, d2_to_copy, d2_to_copy, d2_to_copy);
+
+    d2_setfillmode(gp_davey, d2_fm_texture);
+    d2_setcolor(gp_davey, 0, color);
+
+    while (*text) {
+        char c = *text++;
+        if (c >= 32 && c <= 127) {
+            uint8_t char_idx = c - 32;
+
+            d2_settexturemapping(gp_davey,
+                cursor_x << SHIFT_VALUE, y << SHIFT_VALUE,
+                (char_idx * 8) << 16, 0,
+                map_scale, 0,
+                0, map_scale);
+
+            d2_renderbox(gp_davey,
+                cursor_x << SHIFT_VALUE, y << SHIFT_VALUE,
+                char_size << SHIFT_VALUE, char_size << SHIFT_VALUE);
+        }
+        cursor_x += char_size;
+    }
+
+    d2_setfillmode(gp_davey, 0);
+}
+void lcd_draw_heatmap(HeatmapConfig* cfg) {
+    // 1. Draw Main Heatmap
+    for(int r = 0; r < cfg->data_dim; r++) {
+        for(int c = 0; c < cfg->data_dim; c++) {
+            float val = cfg->data[r * cfg->data_dim + c];
+            texture_buffer[r * cfg->data_dim + c] = get_jet_color(val, cfg->min_val, cfg->max_val);
+        }
+    }
+
+    d2_settexture(gp_davey, texture_buffer, cfg->data_dim, cfg->data_dim, cfg->data_dim, d2_mode_rgb888);
+    d2_settexturemode(gp_davey, d2_tm_filter);
+    d2_settextureoperation(gp_davey, d2_to_one, d2_to_copy, d2_to_copy, d2_to_copy);
+    d2_setfillmode(gp_davey, d2_fm_texture);
+
+    d2_settexturemapping(gp_davey,
+        cfg->x_offset << SHIFT_VALUE,
+        cfg->y_offset << SHIFT_VALUE,
+        0, 0,
+        ((cfg->data_dim << 16) / cfg->plot_width), 0,
+        0, ((cfg->data_dim << 16) / cfg->plot_height));
+
+    d2_renderbox(gp_davey,
+        cfg->x_offset << SHIFT_VALUE,
+        cfg->y_offset << SHIFT_VALUE,
+        cfg->plot_width << SHIFT_VALUE,
+        cfg->plot_height << SHIFT_VALUE);
+
+    // 2. Draw Vertical Colorbar Strip
+    for(int r = 0; r < cfg->data_dim; r++) {
+        float fraction = 1.0f - ((float)r / (float)(cfg->data_dim - 1));
+        float val = cfg->min_val + fraction * (cfg->max_val - cfg->min_val);
+        uint32_t row_color = get_jet_color(val, cfg->min_val, cfg->max_val);
+
+        for(int c = 0; c < cfg->data_dim; c++) {
+            colorbar_texture[r * cfg->data_dim + c] = row_color;
+        }
+    }
+
+    uint16_t cb_x = cfg->x_offset + cfg->plot_width + 20;
+    uint16_t cb_w = 20;
+
+    d2_settexture(gp_davey, colorbar_texture, cfg->data_dim, cfg->data_dim, cfg->data_dim, d2_mode_rgb888);
+
+    d2_settexturemapping(gp_davey,
+        cb_x << SHIFT_VALUE,
+        cfg->y_offset << SHIFT_VALUE,
+        0, 0,
+        ((cfg->data_dim << 16) / cb_w), 0,
+        0, ((cfg->data_dim << 16) / cfg->plot_height));
+
+    d2_renderbox(gp_davey,
+        cb_x << SHIFT_VALUE,
+        cfg->y_offset << SHIFT_VALUE,
+        cb_w << SHIFT_VALUE,
+        cfg->plot_height << SHIFT_VALUE);
+
+    d2_setfillmode(gp_davey, 0);
+}
+
+void lcd_end_frame(void) {
+    d2_endframe(gp_davey);
+}
+
+void glcdc_callback(display_callback_args_t * p_args) {
+    if (p_args->event == DISPLAY_EVENT_LINE_DETECTION) {
+        g_vsync_flag = 1;
+    }
+}

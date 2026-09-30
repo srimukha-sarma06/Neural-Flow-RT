@@ -1,0 +1,195 @@
+digraph g {
+subgraph cluster_graph{
+label = "graph";
+color = red;
+graphFloatVecConstant_70000 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70000\nf32(1)[C]"];
+graphFloatVecConstant_70001 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70001\nf32(1)[C]"];
+graphFloatVecConstant_70002 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70002\nf32(32x2)[HW]"];
+graphFloatVecConstant_70003 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70003\nf32(32)[C]"];
+graphFloatVecConstant_70004 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70004\nf32(32x32)[HW]"];
+graphFloatVecConstant_70005 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70005\nf32(32)[C]"];
+graphFloatVecConstant_70006 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70006\nf32(32x32)[HW]"];
+graphFloatVecConstant_70007 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70007\nf32(32)[C]"];
+graphFloatVecConstant_70008 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70008\nf32(2x32)[HW]"];
+graphFloatVecConstant_70009 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70009\nf32(2)[C]"];
+graphFloatVecConstant_70010 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70010\nf32(1)[C]"];
+graphGraphOutputs [shape=none, label=<<TABLE BGCOLOR="coral" BORDER="2">
+<TR><TD PORT="h_q_70040" BGCOLOR="white">h_q_70040 f32(1x2)[HW]</TD></TR>
+</TABLE>>];graphInt32VecConstant_70013 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="Int32VecConstant, Int32VecConstant_70013\ni32(2)[C]"];
+graphInt32VecConstant_70014 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="Int32VecConstant, Int32VecConstant_70014\ni32(2)[C]"];
+graphInt32VecConstant_70016 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="Int32VecConstant, Int32VecConstant_70016\ni32(2)[C]"];
+graphInt32VecConstant_70017 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="Int32VecConstant, Int32VecConstant_70017\ni32(2)[C]"];
+graphInt32VecConstant_70032 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="Int32VecConstant, Int32VecConstant_70032\ni32(2)[C]"];
+graphInt32VecConstant_70033 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="Int32VecConstant, Int32VecConstant_70033\ni32(2)[C]"];
+graphInt32VecConstant_70035 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="Int32VecConstant, Int32VecConstant_70035\ni32(2)[C]"];
+graphInt32VecConstant_70036 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="Int32VecConstant, Int32VecConstant_70036\ni32(2)[C]"];
+graphh_q_70040 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="in_0" BGCOLOR="white">in_0 f32(1x1)[HW]</TD><TD PORT="in_1" BGCOLOR="white">in_1 f32(1x1)[HW]</TD></TR>
+<TR><TD COLSPAN="2" BORDER="0">TFLiteConcatenate, h_q_70040<FONT POINT-SIZE="8"><BR/>
+axis = 1<BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="2" BGCOLOR="white" PORT="out"> Output f32(1x2)[HW]</TD></TR>
+</TABLE>>];graphwa_Concat_output_0_70024 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="in_0" BGCOLOR="white">in_0 f32(1x1)[HW]</TD><TD PORT="in_1" BGCOLOR="white">in_1 f32(1x1)[HW]</TD></TR>
+<TR><TD COLSPAN="2" BORDER="0">TFLiteConcatenate, wa_Concat_output_0_70024<FONT POINT-SIZE="8"><BR/>
+axis = 1<BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="2" BGCOLOR="white" PORT="out"> Output f32(1x2)[HW]</TD></TR>
+</TABLE>>];graphwa_Div_output_0_70022 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input_lhs" BGCOLOR="white">input_lhs f32(1x1)[HW]</TD><TD PORT="input_rhs" BGCOLOR="white">input_rhs f32(1)[C]</TD></TR>
+<TR><TD COLSPAN="2" BORDER="0">TFLiteMul, wa_Div_output_0_70022<FONT POINT-SIZE="8"><BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="2" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];graphwa_Mul_2_output_0_70020 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input_lhs" BGCOLOR="white">input_lhs f32(1x1)[HW]</TD><TD PORT="input_rhs" BGCOLOR="white">input_rhs f32(1x1)[HW]</TD></TR>
+<TR><TD COLSPAN="2" BORDER="0">TFLiteMul, wa_Mul_2_output_0_70020<FONT POINT-SIZE="8"><BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="2" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];graphwa_Mul_3_output_0_70038 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input_lhs" BGCOLOR="white">input_lhs f32(1x1)[HW]</TD><TD PORT="input_rhs" BGCOLOR="white">input_rhs f32(1x1)[HW]</TD></TR>
+<TR><TD COLSPAN="2" BORDER="0">TFLiteMul, wa_Mul_3_output_0_70038<FONT POINT-SIZE="8"><BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="2" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];graphwa_Mul_4_output_0_70039 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input_lhs" BGCOLOR="white">input_lhs f32(1x1)[HW]</TD><TD PORT="input_rhs" BGCOLOR="white">input_rhs f32(1x1)[HW]</TD></TR>
+<TR><TD COLSPAN="2" BORDER="0">TFLiteMul, wa_Mul_4_output_0_70039<FONT POINT-SIZE="8"><BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="2" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];graphwa_Mul_output_0_70019 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input_lhs" BGCOLOR="white">input_lhs f32(1x1)[HW]</TD><TD PORT="input_rhs" BGCOLOR="white">input_rhs f32(1)[C]</TD></TR>
+<TR><TD COLSPAN="2" BORDER="0">TFLiteMul, wa_Mul_output_0_70019<FONT POINT-SIZE="8"><BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="2" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];graphwa_Slice_1_output_0_70018 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x2)[HW]</TD><TD PORT="begin" BGCOLOR="white">begin i32(2)[C]</TD><TD PORT="size" BGCOLOR="white">size i32(2)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteSlice, wa_Slice_1_output_0_70018</TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];graphwa_Slice_2_output_0_70034 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x2)[HW]</TD><TD PORT="begin" BGCOLOR="white">begin i32(2)[C]</TD><TD PORT="size" BGCOLOR="white">size i32(2)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteSlice, wa_Slice_2_output_0_70034</TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];graphwa_Slice_3_output_0_70037 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x2)[HW]</TD><TD PORT="begin" BGCOLOR="white">begin i32(2)[C]</TD><TD PORT="size" BGCOLOR="white">size i32(2)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteSlice, wa_Slice_3_output_0_70037</TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];graphwa_Slice_output_0_70015 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x2)[HW]</TD><TD PORT="begin" BGCOLOR="white">begin i32(2)[C]</TD><TD PORT="size" BGCOLOR="white">size i32(2)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteSlice, wa_Slice_output_0_70015</TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];graphwa_Sub_1_output_0_70023 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input_lhs" BGCOLOR="white">input_lhs f32(1x1)[HW]</TD><TD PORT="input_rhs" BGCOLOR="white">input_rhs f32(1)[C]</TD></TR>
+<TR><TD COLSPAN="2" BORDER="0">TFLiteSub, wa_Sub_1_output_0_70023<FONT POINT-SIZE="8"><BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="2" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];graphwa_Sub_output_0_70021 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input_lhs" BGCOLOR="white">input_lhs f32(1x1)[HW]</TD><TD PORT="input_rhs" BGCOLOR="white">input_rhs f32(1)[C]</TD></TR>
+<TR><TD COLSPAN="2" BORDER="0">TFLiteSub, wa_Sub_output_0_70021<FONT POINT-SIZE="8"><BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="2" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];graphwa_Tanh_1_output_0_70028 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x32)[HW]</TD></TR>
+<TR><TD COLSPAN="1" BORDER="0">TFLiteTanh, wa_Tanh_1_output_0_70028</TD></TR>
+<TR><TD COLSPAN="1" BGCOLOR="white" PORT="out"> Output f32(1x32)[HW]</TD></TR>
+</TABLE>>];graphwa_Tanh_2_output_0_70030 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x32)[HW]</TD></TR>
+<TR><TD COLSPAN="1" BORDER="0">TFLiteTanh, wa_Tanh_2_output_0_70030</TD></TR>
+<TR><TD COLSPAN="1" BGCOLOR="white" PORT="out"> Output f32(1x32)[HW]</TD></TR>
+</TABLE>>];graphwa_Tanh_output_0_70026 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x32)[HW]</TD></TR>
+<TR><TD COLSPAN="1" BORDER="0">TFLiteTanh, wa_Tanh_output_0_70026</TD></TR>
+<TR><TD COLSPAN="1" BGCOLOR="white" PORT="out"> Output f32(1x32)[HW]</TD></TR>
+</TABLE>>];graphwa_hidden_0_Gemm_output_0_70027 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x32)[HW]</TD><TD PORT="kernel" BGCOLOR="white">kernel f32(32x32)[HW]</TD><TD PORT="bias" BGCOLOR="white">bias f32(32)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteFullyConnectedBias, wa_hidden_0_Gemm_output_0_70027<FONT POINT-SIZE="8"><BR/>
+asymmetric_quantize_inputs = 0<BR/>
+fused_activation = NONE<BR/>
+keep_num_dims = 0<BR/>
+quantized_bias_type = dtype(Float32)<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x32)[HW]</TD></TR>
+</TABLE>>];graphwa_hidden_1_Gemm_output_0_70029 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x32)[HW]</TD><TD PORT="kernel" BGCOLOR="white">kernel f32(32x32)[HW]</TD><TD PORT="bias" BGCOLOR="white">bias f32(32)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteFullyConnectedBias, wa_hidden_1_Gemm_output_0_70029<FONT POINT-SIZE="8"><BR/>
+asymmetric_quantize_inputs = 0<BR/>
+fused_activation = NONE<BR/>
+keep_num_dims = 0<BR/>
+quantized_bias_type = dtype(Float32)<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x32)[HW]</TD></TR>
+</TABLE>>];graphwa_inp_Gemm_output_0_70025 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x2)[HW]</TD><TD PORT="kernel" BGCOLOR="white">kernel f32(32x2)[HW]</TD><TD PORT="bias" BGCOLOR="white">bias f32(32)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteFullyConnectedBias, wa_inp_Gemm_output_0_70025<FONT POINT-SIZE="8"><BR/>
+asymmetric_quantize_inputs = 0<BR/>
+fused_activation = NONE<BR/>
+keep_num_dims = 0<BR/>
+quantized_bias_type = dtype(Float32)<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x32)[HW]</TD></TR>
+</TABLE>>];graphwa_out_Gemm_output_0_70031 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x32)[HW]</TD><TD PORT="kernel" BGCOLOR="white">kernel f32(2x32)[HW]</TD><TD PORT="bias" BGCOLOR="white">bias f32(2)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteFullyConnectedBias, wa_out_Gemm_output_0_70031<FONT POINT-SIZE="8"><BR/>
+asymmetric_quantize_inputs = 0<BR/>
+fused_activation = NONE<BR/>
+keep_num_dims = 0<BR/>
+quantized_bias_type = dtype(Float32)<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x2)[HW]</TD></TR>
+</TABLE>>];graphxi_tau [shape=none, label=<<TABLE BGCOLOR="coral" BORDER="2">
+<TR><TD BORDER="0">xi_tau</TD></TR>
+<TR><TD PORT="out" BGCOLOR="white" BORDER="1">Output f32(1x2)[HW]</TD></TR>
+</TABLE>>];graphFloatVecConstant_70000:out:s -> graphwa_Mul_output_0_70019:input_rhs:n;
+graphFloatVecConstant_70001:out:s -> graphwa_Sub_1_output_0_70023:input_rhs:n;
+graphFloatVecConstant_70001:out:s -> graphwa_Sub_output_0_70021:input_rhs:n;
+graphFloatVecConstant_70002:out:s -> graphwa_inp_Gemm_output_0_70025:kernel:n;
+graphFloatVecConstant_70003:out:s -> graphwa_inp_Gemm_output_0_70025:bias:n;
+graphFloatVecConstant_70004:out:s -> graphwa_hidden_0_Gemm_output_0_70027:kernel:n;
+graphFloatVecConstant_70005:out:s -> graphwa_hidden_0_Gemm_output_0_70027:bias:n;
+graphFloatVecConstant_70006:out:s -> graphwa_hidden_1_Gemm_output_0_70029:kernel:n;
+graphFloatVecConstant_70007:out:s -> graphwa_hidden_1_Gemm_output_0_70029:bias:n;
+graphFloatVecConstant_70008:out:s -> graphwa_out_Gemm_output_0_70031:kernel:n;
+graphFloatVecConstant_70009:out:s -> graphwa_out_Gemm_output_0_70031:bias:n;
+graphFloatVecConstant_70010:out:s -> graphwa_Div_output_0_70022:input_rhs:n;
+graphInt32VecConstant_70013:out:s -> graphwa_Slice_output_0_70015:begin:n;
+graphInt32VecConstant_70014:out:s -> graphwa_Slice_output_0_70015:size:n;
+graphInt32VecConstant_70016:out:s -> graphwa_Slice_1_output_0_70018:begin:n;
+graphInt32VecConstant_70017:out:s -> graphwa_Slice_1_output_0_70018:size:n;
+graphInt32VecConstant_70032:out:s -> graphwa_Slice_2_output_0_70034:begin:n;
+graphInt32VecConstant_70033:out:s -> graphwa_Slice_2_output_0_70034:size:n;
+graphInt32VecConstant_70035:out:s -> graphwa_Slice_3_output_0_70037:begin:n;
+graphInt32VecConstant_70036:out:s -> graphwa_Slice_3_output_0_70037:size:n;
+graphh_q_70040:out:s -> graphGraphOutputs:h_q_70040:n;
+graphwa_Concat_output_0_70024:out:s -> graphwa_inp_Gemm_output_0_70025:input:n;
+graphwa_Div_output_0_70022:out:s -> graphwa_Sub_1_output_0_70023:input_lhs:n;
+graphwa_Mul_2_output_0_70020:out:s -> graphwa_Mul_3_output_0_70038:input_lhs:n;
+graphwa_Mul_3_output_0_70038:out:s -> graphh_q_70040:in_0:n;
+graphwa_Mul_4_output_0_70039:out:s -> graphh_q_70040:in_1:n;
+graphwa_Mul_output_0_70019:out:s -> graphwa_Sub_output_0_70021:input_lhs:n;
+graphwa_Slice_1_output_0_70018:out:s -> graphwa_Div_output_0_70022:input_lhs:n;
+graphwa_Slice_1_output_0_70018:out:s -> graphwa_Mul_2_output_0_70020:input_rhs:n;
+graphwa_Slice_1_output_0_70018:out:s -> graphwa_Mul_4_output_0_70039:input_lhs:n;
+graphwa_Slice_2_output_0_70034:out:s -> graphwa_Mul_3_output_0_70038:input_rhs:n;
+graphwa_Slice_3_output_0_70037:out:s -> graphwa_Mul_4_output_0_70039:input_rhs:n;
+graphwa_Slice_output_0_70015:out:s -> graphwa_Mul_2_output_0_70020:input_lhs:n;
+graphwa_Slice_output_0_70015:out:s -> graphwa_Mul_output_0_70019:input_lhs:n;
+graphwa_Sub_1_output_0_70023:out:s -> graphwa_Concat_output_0_70024:in_1:n;
+graphwa_Sub_output_0_70021:out:s -> graphwa_Concat_output_0_70024:in_0:n;
+graphwa_Tanh_1_output_0_70028:out:s -> graphwa_hidden_1_Gemm_output_0_70029:input:n;
+graphwa_Tanh_2_output_0_70030:out:s -> graphwa_out_Gemm_output_0_70031:input:n;
+graphwa_Tanh_output_0_70026:out:s -> graphwa_hidden_0_Gemm_output_0_70027:input:n;
+graphwa_hidden_0_Gemm_output_0_70027:out:s -> graphwa_Tanh_1_output_0_70028:input:n;
+graphwa_hidden_1_Gemm_output_0_70029:out:s -> graphwa_Tanh_2_output_0_70030:input:n;
+graphwa_inp_Gemm_output_0_70025:out:s -> graphwa_Tanh_output_0_70026:input:n;
+graphwa_out_Gemm_output_0_70031:out:s -> graphwa_Slice_2_output_0_70034:input:n;
+graphwa_out_Gemm_output_0_70031:out:s -> graphwa_Slice_3_output_0_70037:input:n;
+graphxi_tau:out:s -> graphwa_Slice_1_output_0_70018:input:n;
+graphxi_tau:out:s -> graphwa_Slice_output_0_70015:input:n;
+}}

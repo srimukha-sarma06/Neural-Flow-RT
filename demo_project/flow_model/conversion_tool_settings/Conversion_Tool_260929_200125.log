@@ -1,0 +1,105 @@
+2026-09-29 20:00:58,089 [INFO] (check_requirements.py #28, load_requirements): 📥 Downloading requirements from https://Tool-support.renesas.com/tool-support/Zoo/MCT/requirements.txt
+2026-09-29 20:00:58,093 [DEBUG] (connectionpool.py #1081, _new_conn): Starting new HTTPS connection (1): tool-support.renesas.com:443
+2026-09-29 20:00:58,636 [DEBUG] (connectionpool.py #550, _make_request): https://tool-support.renesas.com:443 "GET /tool-support/Zoo/MCT/requirements.txt HTTP/1.1" 200 None
+2026-09-29 20:00:58,656 [INFO] (check_requirements.py #51, _handle_http_requirement): mera_native_runtime: INSTALLED (2.7.1+pkg.6102)
+2026-09-29 20:00:58,658 [INFO] (check_requirements.py #51, _handle_http_requirement): mera_native_compile: INSTALLED (2.7.1+pkg.6102)
+2026-09-29 20:00:58,669 [INFO] (check_requirements.py #51, _handle_http_requirement): mera: INSTALLED (2.7.1+pkg.6102)
+2026-09-29 20:00:58,671 [INFO] (check_requirements.py #51, _handle_http_requirement): mera_visualizer: INSTALLED (2.5.0+mcuv4)
+2026-09-29 20:00:58,686 [INFO] (check_requirements.py #71, _handle_pypi_requirement): onnx==1.17.0: OK
+2026-09-29 20:00:58,688 [INFO] (check_requirements.py #71, _handle_pypi_requirement): tflite==2.18.0: OK
+[INFO] Success to execute the command
+Exit code: 0
+CMD:[C:/Users/skull/e2_studio/workspace/.metadata/.plugins/com.renesas.ai.translator/py.bat C:/Users/skull/e2_studio/workspace/neural_flow/.settings/.plugin/com.renesas.ai.translator/renesas_aicompiler_caller/cli.py comm get_model_info --framework tflite --input_model C:\Users\skull\Downloads\models\2input.tflite --output_shape_dict_jsonpath C:/Users/skull/e2_studio/workspace/neural_flow/flow_model/conversion_tool_settings/2input.tflite_input_shape.json --output_model_info_jsonpath C:/Users/skull/e2_studio/workspace/neural_flow/flow_model/conversion_tool_settings/2input.tflite_model_info.json --accelerator_type ethos-u55 ]
+2026-09-29 20:01:10,721 [INFO] (environment_check.py #360, check_ruhmi_environment): Checking RUHMI environment ...
+2026-09-29 20:01:11,049 [INFO] (environment_check.py #248, _check_python_deps_for_ruhmi): mera version 2.7.1+pkg.6102 released on 2026-08-07
+2026-09-29 20:01:11,053 [INFO] (environment_check.py #234, _check_python_package_and_version): 'mera' version 2.7.1+pkg.6102 is installed.
+2026-09-29 20:01:11,069 [INFO] (environment_check.py #234, _check_python_package_and_version): 'ethos-u-vela' version 5.1.0 is installed.
+2026-09-29 20:01:11,070 [INFO] (environment_check.py #234, _check_python_package_and_version): 'tflite' version 2.18.0 is installed.
+2026-09-29 20:01:11,071 [INFO] (environment_check.py #234, _check_python_package_and_version): 'onnx' version 1.17.0 is installed.
+2026-09-29 20:01:11,086 [INFO] (environment_check.py #234, _check_python_package_and_version): 'typing_extensions' version 4.16.0 is installed.
+2026-09-29 20:01:11,087 [INFO] (environment_check.py #234, _check_python_package_and_version): 'mera-visualizer' version 2.5.0+mcuv4 is installed.
+2026-09-29 20:01:11,088 [INFO] (get_model_info.py #533, main): Environment check passed.
+2026-09-29 20:01:11,088 [INFO] (get_model_info.py #538, main): [Parsing input model node start...]
+2026-09-29 20:01:11,088 [INFO] (get_model_info.py #424, make_shape_dict_from_model): Make shape_dict from model.
+2026-09-29 20:01:11,251 [INFO] (get_model_info.py #380, get_tflite_shape_dict): tflite_shape_dict: {'xi_tau': (np.int32(1), np.int32(2))}
+2026-09-29 20:01:11,251 [INFO] (get_model_info.py #386, get_tflite_shape_dict): shape_dict: {'xi_tau': [1, 2]}
+2026-09-29 20:01:11.321805: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-09-29 20:01:13.993894: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-09-29 20:01:14,269 [DEBUG] (tpu_cluster_resolver.py #34, <module>): Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2026-09-29 20:01:14,996 [DEBUG] (__init__.py #47, <module>): Creating converter from 7 to 5
+2026-09-29 20:01:14,996 [DEBUG] (__init__.py #47, <module>): Creating converter from 5 to 7
+2026-09-29 20:01:14,997 [DEBUG] (__init__.py #47, <module>): Creating converter from 7 to 5
+2026-09-29 20:01:14,997 [DEBUG] (__init__.py #47, <module>): Creating converter from 5 to 7
+2026-09-29 20:01:16,498 [DEBUG] (__init__.py #342, wrapper): matplotlib data path: C:\Users\skull\AppData\Local\Temp\ruhmi\.venv\lib\site-packages\matplotlib\mpl-data
+2026-09-29 20:01:16,517 [DEBUG] (__init__.py #342, wrapper): CONFIGDIR=C:\Users\skull\.matplotlib
+2026-09-29 20:01:16,518 [DEBUG] (__init__.py #1560, <module>): interactive is False
+2026-09-29 20:01:16,518 [DEBUG] (__init__.py #1561, <module>): platform is win32
+2026-09-29 20:01:16,544 [DEBUG] (__init__.py #342, wrapper): CACHEDIR=C:\Users\skull\.matplotlib
+2026-09-29 20:01:16,553 [DEBUG] (font_manager.py #1635, _load_fontmanager): Using fontManager instance from C:\Users\skull\.matplotlib\fontlist-v390.json
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #223, is_tflite_quantized): === Input Details ===
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #225, is_tflite_quantized): Input tensor 0:
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #226, is_tflite_quantized):   name: xi_tau
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #227, is_tflite_quantized):   index: 0
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #228, is_tflite_quantized):   shape: [1 2]
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #229, is_tflite_quantized):   dtype: <class 'numpy.float32'>
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #231, is_tflite_quantized):   quantization (deprecated)_soon): (0.0, 0)
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #232, is_tflite_quantized):   quantization_parameters: {'scales': array([], dtype=float32), 'zero_points': array([], dtype=int32), 'quantized_dimension': 0}
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #233, is_tflite_quantized):   sparsity_parameters: {}
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #235, is_tflite_quantized): === Output Details ===
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #237, is_tflite_quantized): Output tensor 0:
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #238, is_tflite_quantized):   name: h_q
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #239, is_tflite_quantized):   index: 30
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #240, is_tflite_quantized):   shape: [1 2]
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #241, is_tflite_quantized):   dtype: <class 'numpy.float32'>
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #243, is_tflite_quantized):   quantization (deprecated_soon): (0.0, 0)
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #244, is_tflite_quantized):   quantization_parameters: {'scales': array([], dtype=float32), 'zero_points': array([], dtype=int32), 'quantized_dimension': 0}
+2026-09-29 20:01:17,012 [INFO] (get_model_info.py #245, is_tflite_quantized):   sparsity_parameters: {}
+2026-09-29 20:01:17,013 [INFO] (get_model_info.py #506, write_dict2json): Write dictionary to json file.
+2026-09-29 20:01:17,014 [INFO] (get_model_info.py #506, write_dict2json): Write dictionary to json file.
+2026-09-29 20:01:17,014 [INFO] (get_model_info.py #552, main): [Parsing input model node finished]
+Variable container does not have anything...
+[INFO] Success to execute the command
+CMD:[C:/Users/skull/e2_studio/workspace/.metadata/.plugins/com.renesas.ai.translator/py.bat C:/Users/skull/e2_studio/workspace/neural_flow/.settings/.plugin/com.renesas.ai.translator/renesas_aicompiler_caller/cli.py ruhmi deploy --framework tflite --input_model C:\Users\skull\Downloads\models\2input.tflite --output_dir C:/Users/skull/e2_studio/workspace/neural_flow/flow_model/converted --weight_loc 0 --use_only_cpu --mera_options  --vela_options  --shape_dict_json C:/Users/skull/e2_studio/workspace/neural_flow/flow_model/conversion_tool_settings/2input.tflite_input_shape.json ]
+2026-09-29 20:01:25,437 [INFO] (environment_check.py #360, check_ruhmi_environment): Checking RUHMI environment ...
+2026-09-29 20:01:25,438 [INFO] (environment_check.py #248, _check_python_deps_for_ruhmi): mera version 2.7.1+pkg.6102 released on 2026-08-07
+2026-09-29 20:01:25,441 [INFO] (environment_check.py #234, _check_python_package_and_version): 'mera' version 2.7.1+pkg.6102 is installed.
+2026-09-29 20:01:25,442 [INFO] (environment_check.py #234, _check_python_package_and_version): 'ethos-u-vela' version 5.1.0 is installed.
+2026-09-29 20:01:25,443 [INFO] (environment_check.py #234, _check_python_package_and_version): 'tflite' version 2.18.0 is installed.
+2026-09-29 20:01:25,444 [INFO] (environment_check.py #234, _check_python_package_and_version): 'onnx' version 1.17.0 is installed.
+2026-09-29 20:01:25,444 [INFO] (environment_check.py #234, _check_python_package_and_version): 'typing_extensions' version 4.16.0 is installed.
+2026-09-29 20:01:25,445 [INFO] (environment_check.py #234, _check_python_package_and_version): 'mera-visualizer' version 2.5.0+mcuv4 is installed.
+2026-09-29 20:01:25,448 [INFO] (deploy_model.py #337, main): Arguments: Namespace(framework='tflite', input_model='C:\\Users\\skull\\Downloads\\models\\2input.tflite', output_dir='C:/Users/skull/e2_studio/workspace/neural_flow/flow_model/converted', shape_dict_json='C:/Users/skull/e2_studio/workspace/neural_flow/flow_model/conversion_tool_settings/2input.tflite_input_shape.json', optimization_mode=0, memory_mode=0, use_only_cpu=True, weight_loc=0, ethos_configuration_filepath=None, mera_options='', vela_options='')
+2026-09-29 20:01:25,448 [INFO] (deploy_model.py #338, main): Mera options: Namespace(target='mcu', enable_ospi=False, enable_ref_data=True, suffix='', use_x86=False, args=[])
+2026-09-29 20:01:25,448 [INFO] (deploy_model.py #339, main): Vela options: Namespace(sys_config='RA8P1', accel_config='ethos-u55-256', verbose_all=False, args=[])
+Variable container does not have anything...
+2026-09-29 20:01:25,456 [INFO] (deploy_model.py #363, main): Targeting MCU on ALT1 
+2026-09-29 20:01:25,456 [INFO] (deploy_model.py #295, compile_mera): 
+Deploying MERA model ...
+2026-09-29 20:01:25,459 [DEBUG] (deploy_project.py #241, pushd): (pushd) Running in model
+2026-09-29 20:01:25,460 [DEBUG] (utils.py #25, cmd): Running command 'C:\Users\skull\AppData\Local\Temp\ruhmi\.venv\Lib\site-packages\mera\bin_utils\fe_tflite_cli.exe --io_desc_input C:\Users\skull\Downloads\models\2input.tflite --io_desc_result C:\Users\skull\AppData\Local\Temp\tmptj8l7za4\tempfile'
+2026-09-29 20:01:25,518 [DEBUG] (deploy_project.py #208, save_artifact): Saved json artifact 'input_desc.json' into C:\Users\skull\e2_studio\workspace\neural_flow\flow_model\converted\model
+2026-09-29 20:01:25,518 [DEBUG] (deploy_project.py #248, popd): (popd) cwd is now C:\Users\skull\e2_studio\workspace\neural_flow\flow_model\converted
+2026-09-29 20:01:25,518 [INFO] (deploy.py #362, deploy):  *** mera v2.7.1+pkg.6102 ***
+2026-09-29 20:01:25,518 [INFO] (deploy.py #363, deploy): Starting deployment of model '2input'...
+2026-09-29 20:01:25,518 [DEBUG] (deploy_project.py #241, pushd): (pushd) Running in build
+2026-09-29 20:01:25,519 [DEBUG] (deploy_project.py #241, pushd): (pushd) Running in MCU
+2026-09-29 20:01:25,520 [DEBUG] (deploy_project.py #208, save_artifact): Saved json artifact 'deploy_cfg.json' into C:\Users\skull\e2_studio\workspace\neural_flow\flow_model\converted\build\MCU
+2026-09-29 20:01:25,520 [DEBUG] (utils.py #25, cmd): Running command 'C:\Users\skull\AppData\Local\Temp\ruhmi\.venv\Lib\site-packages\mera\bin_utils\fe_tflite_cli.exe C:\Users\skull\e2_studio\workspace\neural_flow\flow_model\converted\build\MCU\deploy_cfg.json'
+2026-09-29 20:01:25,586 [DEBUG] (deploy_project.py #241, pushd): (pushd) Running in model
+2026-09-29 20:01:25,587 [DEBUG] (deploy_project.py #208, save_artifact): Saved json artifact 'input_desc.json' into C:\Users\skull\e2_studio\workspace\neural_flow\flow_model\converted\model
+2026-09-29 20:01:25,587 [DEBUG] (deploy_project.py #248, popd): (popd) cwd is now C:\Users\skull\e2_studio\workspace\neural_flow\flow_model\converted\build\MCU
+2026-09-29 20:01:25,591 [DEBUG] (utils.py #25, cmd): Running command 'C:\Users\skull\AppData\Local\Temp\ruhmi\.venv\Lib\site-packages\mera\bin_utils\ccodegen\c_codegen C:\Users\skull\e2_studio\workspace\neural_flow\flow_model\converted\build\MCU\compilation C:\Users\skull\e2_studio\workspace\neural_flow\flow_model\converted\build\MCU\compilation\src  '
+2026-09-29 20:01:25,654 [DEBUG] (utils.py #25, cmd): Running command 'C:\Users\skull\AppData\Local\Temp\ruhmi\.venv\Lib\site-packages\mera\bin_utils\ccodegen\c_codegen C:\Users\skull\e2_studio\workspace\neural_flow\flow_model\converted\build\MCU\compilation\sub_0000__CPU_C_CODEGEN\model.merair C:\Users\skull\AppData\Local\Temp\ruhmi\.venv\Lib\site-packages\mera\bin_utils\ccodegen\templates C:\Users\skull\AppData\Local\Temp\ruhmi\.venv\Lib\site-packages\mera\bin_utils\ccodegen\kernel_library sub_0000 C:\Users\skull\e2_studio\workspace\neural_flow\flow_model\converted\build\MCU\compilation\src flash   '
+2026-09-29 20:01:25,824 [DEBUG] (utils.py #25, cmd): Running command 'C:\Users\skull\AppData\Local\Temp\ruhmi\.venv\Lib\site-packages\mera\bin_utils\ccodegen\tflite_io_data C:\Users\skull\e2_studio\workspace\neural_flow\flow_model\converted\build\MCU\deploy_cfg.json'
+2026-09-29 20:01:25,883 [INFO] (deploy_model.py #380, main): SUCCESS, saved at C:/Users/skull/e2_studio/workspace/neural_flow/flow_model/converted
+[2026-09-29 20:01:25.551] [info] Loading and converting TFLite model ... 
+[2026-09-29 20:01:25.552] [info] TFLite Model Version: 3
+[2026-09-29 20:01:25.556] [info] Converting to canonical ...
+[2026-09-29 20:01:25.562] [info] Converting to target IR ...
+[2026-09-29 20:01:25.566] [info] Dividing and exporting regions ...
+[2026-09-29 20:01:25.570] [info] Ethos-U support is disabled, sending the whole graph to the C99/CMSIS-NN codegen
+[2026-09-29 20:01:25.570] [info] Model is fully captured to target C_CODEGEN
+Loaded MERA IR
+Success
+[INFO] Success to execute the command
