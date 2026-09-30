@@ -1,0 +1,73 @@
+{
+  "execution": {
+    "stages": [
+      [
+        [
+          [
+            {
+              "backend": "mera_c99_source_cpu",
+              "binaries_location": "sub_0000__CPU_C_CODEGEN",
+              "name": "sub_0000"
+            },
+            {
+              "input_buffers": {
+                "xi_tau": 0
+              },
+              "input_order": [
+                "xi_tau"
+              ],
+              "output_buffers": {
+                "h_q_70040": 1
+              },
+              "output_order": [
+                "h_q_70040"
+              ]
+            }
+          ]
+        ]
+      ]
+    ]
+  },
+  "memory": {
+    "buffers": [
+      {
+        "alignment": 256,
+        "alloc_mode": "linux_malloc",
+        "bytes_size": 8,
+        "data_type": "float32",
+        "name": "xi_tau",
+        "offset": 0,
+        "shape": [
+          1,
+          2
+        ],
+        "size": 2
+      },
+      {
+        "alignment": 256,
+        "alloc_mode": "linux_malloc",
+        "bytes_size": 8,
+        "data_type": "float32",
+        "name": "h_q_70040",
+        "offset": 0,
+        "shape": [
+          1,
+          2
+        ],
+        "size": 2
+      }
+    ],
+    "input_buffers": [
+      [
+        "xi_tau",
+        0
+      ]
+    ],
+    "output_buffers": [
+      [
+        "h_q_70040",
+        1
+      ]
+    ]
+  }
+}

@@ -1,0 +1,173 @@
+digraph g {
+subgraph cluster_sub_0_C_CODEGEN{
+label = "sub_0_C_CODEGEN";
+color = red;
+sub_0_C_CODEGENFloatVecConstant_70000 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70000\nf32(206)[C]"];
+sub_0_C_CODEGENFloatVecConstant_70001 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70001\nf32(1)[C]"];
+sub_0_C_CODEGENFloatVecConstant_70002 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70002\nf32(1)[C]"];
+sub_0_C_CODEGENFloatVecConstant_70003 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70003\nf32(206)[C]"];
+sub_0_C_CODEGENFloatVecConstant_70004 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70004\nf32(96x206)[HW]"];
+sub_0_C_CODEGENFloatVecConstant_70005 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70005\nf32(96)[C]"];
+sub_0_C_CODEGENFloatVecConstant_70006 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70006\nf32(96x96)[HW]"];
+sub_0_C_CODEGENFloatVecConstant_70007 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70007\nf32(96)[C]"];
+sub_0_C_CODEGENFloatVecConstant_70008 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70008\nf32(96x96)[HW]"];
+sub_0_C_CODEGENFloatVecConstant_70009 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70009\nf32(96)[C]"];
+sub_0_C_CODEGENFloatVecConstant_70010 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70010\nf32(3x96)[HW]"];
+sub_0_C_CODEGENFloatVecConstant_70011 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70011\nf32(3)[C]"];
+sub_0_C_CODEGENFloatVecConstant_70012 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70012\nf32(1x96)[HW]"];
+sub_0_C_CODEGENFloatVecConstant_70013 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70013\nf32(1)[C]"];
+sub_0_C_CODEGENFloatVecConstant_70014 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70014\nf32(2x96)[HW]"];
+sub_0_C_CODEGENFloatVecConstant_70015 [shape=cylinder, fillcolor=antiquewhite, fontsize="12pt", style=filled, label="FloatVecConstant, FloatVecConstant_70015\nf32(2)[C]"];
+sub_0_C_CODEGENGraphOutputs [shape=none, label=<<TABLE BGCOLOR="coral" BORDER="2">
+<TR><TD PORT="cls_xi_kappa_70032" BGCOLOR="white">cls_xi_kappa_70032 f32(1x6)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENcls_xi_kappa_70032 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="in_0" BGCOLOR="white">in_0 f32(1x3)[HW]</TD><TD PORT="in_1" BGCOLOR="white">in_1 f32(1x1)[HW]</TD><TD PORT="in_2" BGCOLOR="white">in_2 f32(1x2)[HW]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteConcatenate, cls_xi_kappa_70032<FONT POINT-SIZE="8"><BR/>
+axis = 1<BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x6)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENsensor_features [shape=none, label=<<TABLE BGCOLOR="coral" BORDER="2">
+<TR><TD BORDER="0">sensor_features</TD></TR>
+<TR><TD PORT="out" BGCOLOR="white" BORDER="1">Output f32(1x206)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_Div_output_0_70017 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input_lhs" BGCOLOR="white">input_lhs f32(1x206)[HW]</TD><TD PORT="input_rhs" BGCOLOR="white">input_rhs f32(206)[C]</TD></TR>
+<TR><TD COLSPAN="2" BORDER="0">TFLiteMul, wa_Div_output_0_70017<FONT POINT-SIZE="8"><BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="2" BGCOLOR="white" PORT="out"> Output f32(1x206)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_Sub_output_0_70016 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input_lhs" BGCOLOR="white">input_lhs f32(1x206)[HW]</TD><TD PORT="input_rhs" BGCOLOR="white">input_rhs f32(206)[C]</TD></TR>
+<TR><TD COLSPAN="2" BORDER="0">TFLiteSub, wa_Sub_output_0_70016<FONT POINT-SIZE="8"><BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="2" BGCOLOR="white" PORT="out"> Output f32(1x206)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_Add_output_0_70031 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input_lhs" BGCOLOR="white">input_lhs f32(1x1)[HW]</TD><TD PORT="input_rhs" BGCOLOR="white">input_rhs f32(1)[C]</TD></TR>
+<TR><TD COLSPAN="2" BORDER="0">TFLiteQAdd, wa_net_Add_output_0_70031<FONT POINT-SIZE="8"><BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="2" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_Exp_output_0_70029 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x2)[HW]</TD></TR>
+<TR><TD COLSPAN="1" BORDER="0">TFLiteExp, wa_net_Exp_output_0_70029</TD></TR>
+<TR><TD COLSPAN="1" BGCOLOR="white" PORT="out"> Output f32(1x2)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_Mul_output_0_70030 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input_lhs" BGCOLOR="white">input_lhs f32(1x1)[HW]</TD><TD PORT="input_rhs" BGCOLOR="white">input_rhs f32(1)[C]</TD></TR>
+<TR><TD COLSPAN="2" BORDER="0">TFLiteMul, wa_net_Mul_output_0_70030<FONT POINT-SIZE="8"><BR/>
+fused_activation = NONE<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="2" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_Sigmoid_output_0_70028 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x1)[HW]</TD></TR>
+<TR><TD COLSPAN="1" BORDER="0">TFLiteSigmoid, wa_net_Sigmoid_output_0_70028</TD></TR>
+<TR><TD COLSPAN="1" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_Softmax_output_0_70027 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x3)[HW]</TD></TR>
+<TR><TD COLSPAN="1" BORDER="0">TFLiteSoftmax, wa_net_Softmax_output_0_70027<FONT POINT-SIZE="8"><BR/>
+beta = 1<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="1" BGCOLOR="white" PORT="out"> Output f32(1x3)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_Tanh_1_output_0_70021 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x96)[HW]</TD></TR>
+<TR><TD COLSPAN="1" BORDER="0">TFLiteTanh, wa_net_Tanh_1_output_0_70021</TD></TR>
+<TR><TD COLSPAN="1" BGCOLOR="white" PORT="out"> Output f32(1x96)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_Tanh_2_output_0_70023 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x96)[HW]</TD></TR>
+<TR><TD COLSPAN="1" BORDER="0">TFLiteTanh, wa_net_Tanh_2_output_0_70023</TD></TR>
+<TR><TD COLSPAN="1" BGCOLOR="white" PORT="out"> Output f32(1x96)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_Tanh_output_0_70019 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x96)[HW]</TD></TR>
+<TR><TD COLSPAN="1" BORDER="0">TFLiteTanh, wa_net_Tanh_output_0_70019</TD></TR>
+<TR><TD COLSPAN="1" BGCOLOR="white" PORT="out"> Output f32(1x96)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_cls_out_Gemm_output_0_70024 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x96)[HW]</TD><TD PORT="kernel" BGCOLOR="white">kernel f32(3x96)[HW]</TD><TD PORT="bias" BGCOLOR="white">bias f32(3)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteFullyConnectedBias, wa_net_cls_out_Gemm_output_0_70024<FONT POINT-SIZE="8"><BR/>
+asymmetric_quantize_inputs = 0<BR/>
+fused_activation = NONE<BR/>
+keep_num_dims = 0<BR/>
+quantized_bias_type = dtype(Float32)<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x3)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_hidden_0_Gemm_output_0_70018 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x206)[HW]</TD><TD PORT="kernel" BGCOLOR="white">kernel f32(96x206)[HW]</TD><TD PORT="bias" BGCOLOR="white">bias f32(96)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteFullyConnectedBias, wa_net_hidden_0_Gemm_output_0_70018<FONT POINT-SIZE="8"><BR/>
+asymmetric_quantize_inputs = 0<BR/>
+fused_activation = NONE<BR/>
+keep_num_dims = 0<BR/>
+quantized_bias_type = dtype(Float32)<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x96)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_hidden_1_Gemm_output_0_70020 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x96)[HW]</TD><TD PORT="kernel" BGCOLOR="white">kernel f32(96x96)[HW]</TD><TD PORT="bias" BGCOLOR="white">bias f32(96)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteFullyConnectedBias, wa_net_hidden_1_Gemm_output_0_70020<FONT POINT-SIZE="8"><BR/>
+asymmetric_quantize_inputs = 0<BR/>
+fused_activation = NONE<BR/>
+keep_num_dims = 0<BR/>
+quantized_bias_type = dtype(Float32)<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x96)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_hidden_2_Gemm_output_0_70022 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x96)[HW]</TD><TD PORT="kernel" BGCOLOR="white">kernel f32(96x96)[HW]</TD><TD PORT="bias" BGCOLOR="white">bias f32(96)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteFullyConnectedBias, wa_net_hidden_2_Gemm_output_0_70022<FONT POINT-SIZE="8"><BR/>
+asymmetric_quantize_inputs = 0<BR/>
+fused_activation = NONE<BR/>
+keep_num_dims = 0<BR/>
+quantized_bias_type = dtype(Float32)<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x96)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_sev_out_Gemm_output_0_70026 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x96)[HW]</TD><TD PORT="kernel" BGCOLOR="white">kernel f32(2x96)[HW]</TD><TD PORT="bias" BGCOLOR="white">bias f32(2)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteFullyConnectedBias, wa_net_sev_out_Gemm_output_0_70026<FONT POINT-SIZE="8"><BR/>
+asymmetric_quantize_inputs = 0<BR/>
+fused_activation = NONE<BR/>
+keep_num_dims = 0<BR/>
+quantized_bias_type = dtype(Float32)<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x2)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENwa_net_xi_out_Gemm_output_0_70025 [shape=none, label=<<TABLE BGCOLOR="gray90">
+<TR><TD PORT="input" BGCOLOR="white">input f32(1x96)[HW]</TD><TD PORT="kernel" BGCOLOR="white">kernel f32(1x96)[HW]</TD><TD PORT="bias" BGCOLOR="white">bias f32(1)[C]</TD></TR>
+<TR><TD COLSPAN="3" BORDER="0">TFLiteFullyConnectedBias, wa_net_xi_out_Gemm_output_0_70025<FONT POINT-SIZE="8"><BR/>
+asymmetric_quantize_inputs = 0<BR/>
+fused_activation = NONE<BR/>
+keep_num_dims = 0<BR/>
+quantized_bias_type = dtype(Float32)<BR/>
+</FONT></TD></TR>
+<TR><TD COLSPAN="3" BGCOLOR="white" PORT="out"> Output f32(1x1)[HW]</TD></TR>
+</TABLE>>];sub_0_C_CODEGENFloatVecConstant_70000:out:s -> sub_0_C_CODEGENwa_Sub_output_0_70016:input_rhs:n;
+sub_0_C_CODEGENFloatVecConstant_70001:out:s -> sub_0_C_CODEGENwa_net_Mul_output_0_70030:input_rhs:n;
+sub_0_C_CODEGENFloatVecConstant_70002:out:s -> sub_0_C_CODEGENwa_net_Add_output_0_70031:input_rhs:n;
+sub_0_C_CODEGENFloatVecConstant_70003:out:s -> sub_0_C_CODEGENwa_Div_output_0_70017:input_rhs:n;
+sub_0_C_CODEGENFloatVecConstant_70004:out:s -> sub_0_C_CODEGENwa_net_hidden_0_Gemm_output_0_70018:kernel:n;
+sub_0_C_CODEGENFloatVecConstant_70005:out:s -> sub_0_C_CODEGENwa_net_hidden_0_Gemm_output_0_70018:bias:n;
+sub_0_C_CODEGENFloatVecConstant_70006:out:s -> sub_0_C_CODEGENwa_net_hidden_1_Gemm_output_0_70020:kernel:n;
+sub_0_C_CODEGENFloatVecConstant_70007:out:s -> sub_0_C_CODEGENwa_net_hidden_1_Gemm_output_0_70020:bias:n;
+sub_0_C_CODEGENFloatVecConstant_70008:out:s -> sub_0_C_CODEGENwa_net_hidden_2_Gemm_output_0_70022:kernel:n;
+sub_0_C_CODEGENFloatVecConstant_70009:out:s -> sub_0_C_CODEGENwa_net_hidden_2_Gemm_output_0_70022:bias:n;
+sub_0_C_CODEGENFloatVecConstant_70010:out:s -> sub_0_C_CODEGENwa_net_cls_out_Gemm_output_0_70024:kernel:n;
+sub_0_C_CODEGENFloatVecConstant_70011:out:s -> sub_0_C_CODEGENwa_net_cls_out_Gemm_output_0_70024:bias:n;
+sub_0_C_CODEGENFloatVecConstant_70012:out:s -> sub_0_C_CODEGENwa_net_xi_out_Gemm_output_0_70025:kernel:n;
+sub_0_C_CODEGENFloatVecConstant_70013:out:s -> sub_0_C_CODEGENwa_net_xi_out_Gemm_output_0_70025:bias:n;
+sub_0_C_CODEGENFloatVecConstant_70014:out:s -> sub_0_C_CODEGENwa_net_sev_out_Gemm_output_0_70026:kernel:n;
+sub_0_C_CODEGENFloatVecConstant_70015:out:s -> sub_0_C_CODEGENwa_net_sev_out_Gemm_output_0_70026:bias:n;
+sub_0_C_CODEGENcls_xi_kappa_70032:out:s -> sub_0_C_CODEGENGraphOutputs:cls_xi_kappa_70032:n;
+sub_0_C_CODEGENsensor_features:out:s -> sub_0_C_CODEGENwa_Sub_output_0_70016:input_lhs:n;
+sub_0_C_CODEGENwa_Div_output_0_70017:out:s -> sub_0_C_CODEGENwa_net_hidden_0_Gemm_output_0_70018:input:n;
+sub_0_C_CODEGENwa_Sub_output_0_70016:out:s -> sub_0_C_CODEGENwa_Div_output_0_70017:input_lhs:n;
+sub_0_C_CODEGENwa_net_Add_output_0_70031:out:s -> sub_0_C_CODEGENcls_xi_kappa_70032:in_1:n;
+sub_0_C_CODEGENwa_net_Exp_output_0_70029:out:s -> sub_0_C_CODEGENcls_xi_kappa_70032:in_2:n;
+sub_0_C_CODEGENwa_net_Mul_output_0_70030:out:s -> sub_0_C_CODEGENwa_net_Add_output_0_70031:input_lhs:n;
+sub_0_C_CODEGENwa_net_Sigmoid_output_0_70028:out:s -> sub_0_C_CODEGENwa_net_Mul_output_0_70030:input_lhs:n;
+sub_0_C_CODEGENwa_net_Softmax_output_0_70027:out:s -> sub_0_C_CODEGENcls_xi_kappa_70032:in_0:n;
+sub_0_C_CODEGENwa_net_Tanh_1_output_0_70021:out:s -> sub_0_C_CODEGENwa_net_hidden_2_Gemm_output_0_70022:input:n;
+sub_0_C_CODEGENwa_net_Tanh_2_output_0_70023:out:s -> sub_0_C_CODEGENwa_net_cls_out_Gemm_output_0_70024:input:n;
+sub_0_C_CODEGENwa_net_Tanh_2_output_0_70023:out:s -> sub_0_C_CODEGENwa_net_sev_out_Gemm_output_0_70026:input:n;
+sub_0_C_CODEGENwa_net_Tanh_2_output_0_70023:out:s -> sub_0_C_CODEGENwa_net_xi_out_Gemm_output_0_70025:input:n;
+sub_0_C_CODEGENwa_net_Tanh_output_0_70019:out:s -> sub_0_C_CODEGENwa_net_hidden_1_Gemm_output_0_70020:input:n;
+sub_0_C_CODEGENwa_net_cls_out_Gemm_output_0_70024:out:s -> sub_0_C_CODEGENwa_net_Softmax_output_0_70027:input:n;
+sub_0_C_CODEGENwa_net_hidden_0_Gemm_output_0_70018:out:s -> sub_0_C_CODEGENwa_net_Tanh_output_0_70019:input:n;
+sub_0_C_CODEGENwa_net_hidden_1_Gemm_output_0_70020:out:s -> sub_0_C_CODEGENwa_net_Tanh_1_output_0_70021:input:n;
+sub_0_C_CODEGENwa_net_hidden_2_Gemm_output_0_70022:out:s -> sub_0_C_CODEGENwa_net_Tanh_2_output_0_70023:input:n;
+sub_0_C_CODEGENwa_net_sev_out_Gemm_output_0_70026:out:s -> sub_0_C_CODEGENwa_net_Exp_output_0_70029:input:n;
+sub_0_C_CODEGENwa_net_xi_out_Gemm_output_0_70025:out:s -> sub_0_C_CODEGENwa_net_Sigmoid_output_0_70028:input:n;
+}}

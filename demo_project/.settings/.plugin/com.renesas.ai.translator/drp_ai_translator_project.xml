@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DrpAiTranslatorProjectSettings>
+    <ProjectSettingsInfo>
+        <framework>2</framework>
+        <modelfile>C:\Users\skull\Downloads\models\200wala.tflite</modelfile>
+        <output_directory>classifier</output_directory>
+        <product>RA8 Series (CPU Only)</product>
+        <tool_name>RUHMI Framework AI Compiler</tool_name>
+        <docker_image_name>Unused property</docker_image_name>
+        <PytorchSettingInfo>
+            <configuration_type>false</configuration_type>
+            <configuration_file/>
+            <modelname/>
+            <model_weight/>
+            <input_layer_shape/>
+        </PytorchSettingInfo>
+    </ProjectSettingsInfo>
+    <DRP-AI_TVMSettingInfo>
+        <TransSettingInfo>
+            <item key="C:\Users\skull\Downloads\models\2input.tflite">flow_model/conversion_tool_settings/2input.tflite_trans_config.json</item>
+            <item key="C:\Users\skull\Downloads\models\200wala.tflite">classifier/conversion_tool_settings/200wala.tflite_trans_config.json</item>
+            <item key="C:\Users\skull\Downloads\models\custom_model_strided_slices_compact.tflite">conversion_results/conversion_tool_settings/custom_model_strided_slices_compact.tflite_trans_config.json</item>
+        </TransSettingInfo>
+        <QuantizationSetting>
+            <item key="C:\Users\skull\Downloads\models\2input.tflite">flow_model/conversion_tool_settings/2input.tflite_quant_config.json</item>
+            <item key="C:\Users\skull\Downloads\models\200wala.tflite">classifier/conversion_tool_settings/200wala.tflite_quant_config.json</item>
+            <item key="C:\Users\skull\Downloads\models\custom_model_strided_slices_compact.tflite">conversion_results/conversion_tool_settings/custom_model_strided_slices_compact.tflite_quant_config.json</item>
+        </QuantizationSetting>
+    </DRP-AI_TVMSettingInfo>
+</DrpAiTranslatorProjectSettings>

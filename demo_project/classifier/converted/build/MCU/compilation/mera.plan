@@ -1,0 +1,73 @@
+{
+  "execution": {
+    "stages": [
+      [
+        [
+          [
+            {
+              "backend": "mera_c99_source_cpu",
+              "binaries_location": "sub_0000__CPU_C_CODEGEN",
+              "name": "sub_0000"
+            },
+            {
+              "input_buffers": {
+                "sensor_features": 0
+              },
+              "input_order": [
+                "sensor_features"
+              ],
+              "output_buffers": {
+                "cls_xi_kappa_70032": 1
+              },
+              "output_order": [
+                "cls_xi_kappa_70032"
+              ]
+            }
+          ]
+        ]
+      ]
+    ]
+  },
+  "memory": {
+    "buffers": [
+      {
+        "alignment": 256,
+        "alloc_mode": "linux_malloc",
+        "bytes_size": 824,
+        "data_type": "float32",
+        "name": "sensor_features",
+        "offset": 0,
+        "shape": [
+          1,
+          206
+        ],
+        "size": 206
+      },
+      {
+        "alignment": 256,
+        "alloc_mode": "linux_malloc",
+        "bytes_size": 24,
+        "data_type": "float32",
+        "name": "cls_xi_kappa_70032",
+        "offset": 0,
+        "shape": [
+          1,
+          6
+        ],
+        "size": 6
+      }
+    ],
+    "input_buffers": [
+      [
+        "sensor_features",
+        0
+      ]
+    ],
+    "output_buffers": [
+      [
+        "cls_xi_kappa_70032",
+        1
+      ]
+    ]
+  }
+}

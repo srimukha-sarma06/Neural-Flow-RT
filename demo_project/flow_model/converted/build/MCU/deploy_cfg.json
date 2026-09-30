@@ -1,0 +1,37 @@
+{
+    "schema": 2,
+    "metadata": {},
+    "checksums": {},
+    "devices": [
+        "CPU",
+        "EC_C_CODEGEN"
+    ],
+    "model_path": "C:\\Users\\skull\\Downloads\\models\\2input.tflite",
+    "output_dir": "C:\\Users\\skull\\e2_studio\\workspace\\neural_flow\\flow_model\\converted\\build\\MCU",
+    "symbolic_dimensions": {},
+    "model_info": {},
+    "frontend_options": {
+        "kv_cache_length": 0,
+        "attention_dim_pad": 32,
+        "input_norm": {}
+    },
+    "backend_options": {
+        "cpu": {
+            "host_arch": "x86"
+        },
+        "dna": {
+            "arch_cfg": "ALT1",
+            "ccfg": "{}",
+            "extract_qtz_io_to_cpu": true
+        },
+        "ccodegen": {
+            "enable_ethos": false,
+            "enable_ospi": false,
+            "enable_ref_data": true,
+            "convert_canonical": false
+        },
+        "dnax": {}
+    },
+    "fe_mode": "FULL",
+    "enable_gather_mera_block": false
+}
